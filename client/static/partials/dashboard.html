@@ -1,0 +1,52 @@
+<div ng-controller="usersController">
+<h1>Welcome, <span ng-bind="user.name"></span></h1>
+<p><a href="#/dashboard"></a>Dashboard  | <a href="#/">Logout</a></p>
+</div>
+<div class="row main">
+	<div class="text-right">
+		<input type="text" ng-model="query" placeholder="Search..."> 
+	</div>
+	<div class="col-xl-12">
+		<table class="table table-striped table-hover" topics>
+			<thead>
+				<tr>
+					<th>Category</th>
+					<th>Topic</th>
+					<th>User Name</th>
+					<th>Posts</th>
+				</tr>
+			</thead>
+			<tbody ng-controller='topicsController'>
+				<tr ng-repeat="topic in topics | filter: query" >
+					<td ng-bind="topic.category"></td>
+					<td><a ng-bind="topic.title" href="#/topics/{{topic._id}}"></a></td>
+					<td><a ng-bind="topic.name" ng-href="#/users/{{topic.user_id}}"></a></td>
+					<td ng-bind="topic.posts"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<h2>Add a new Topic</h2>
+	<form class="form-horizontal" role="form">
+		<div class="form-group">
+			<label class="col-sm-2 control-label">Topic:</label>
+			<input type="text" class="col-sm-4" ng-model="new_topic.title">
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label">Description:</label>
+			<textarea class="col-sm-4" rows="4" ng-model="new_topic.description"></textarea>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label">Category:</label>
+			<select class="col-sm-4" ng-model="new_topic.category">
+				<option value="Crystals">Crystals & Gemstones</option>
+				<option value="Perfumes">Ceremonial Perfumes</option>
+				<option value="Recipes">Kitchen Magic</option>
+				<option value="Spells">Spells</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<button class="btn btn-success col-md-1 col-md-offset-5" ng-click="createTopic(new_topic, user)">Add Topic</button>
+		</div>
+	</form>
+</div>

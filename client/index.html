@@ -1,0 +1,31 @@
+
+<html ng-app='myApp'>
+	<head>
+		<title>Discussion Board</title>
+		<!-- <link rel='stylesheet' href='./static/style.css'> -->
+		<script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+ 		<script>
+ 			var socket = io.connect();	
+ 		</script>
+		<script type="text/javascript" src="angular.js"></script>
+		<script type="text/javascript" src="angular-route.js"></script>
+		<script type="text/javascript" src="angular-messages.js"></script>
+<!-- 		<script type="text/javascript" src="./js/factories/userFactory.js"></script>
+		<script type="text/javascript" src="./js/factories/topicFactory.js"></script>
+		<script type="text/javascript" src="./js/factories/postFactory.js"></script> -->
+		<!-- <script type="text/javascript" src="./js/controllers/usersController.js"></script> -->
+		<!-- <script type="text/javascript" src="./js/controllers/topicsController.js"></script> -->
+		<script src="./js/Factories.js"></script>
+    	<script src="./js/Controllers.js"></script>
+		<script type="text/javascript" src="./js/config/routes.js"></script>
+		<script>
+
+		</script>
+	</head>
+	<body>
+		<div id='container'>
+	
+			<div ng-view=''></div>
+		</div>
+	</body>
+</html>
